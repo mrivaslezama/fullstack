@@ -38,7 +38,20 @@ production:
   password: <%= ENV['RAILS_TWEET_ADALID_DATABASE_PASSWORD'] %>
 ```
 
-Crear el proyecto en Heroku
+Hacemos un commit con el código generado
+
+```bash
+git add .
+git commit -m "Configuración de la base de datos para producción"
+```
+
+Subimos el código a github
+
+```bash
+git push origin main
+```
+
+Crear el proyecto en Heroku ejecutando en la terminal
 
 ```bash
 heroku create
@@ -52,14 +65,24 @@ git push heroku main
 
 Cuando el proyecto se encuentre disponible en internet, ejecutar la migración para generar los artículos utilizando la gema de Faker.
 
-1. Ejecutar la migración en Heroku
+Ejecutar la migración en Heroku
 
 ```bash
 heroku run rails db:migrate
 ```
 
-Subimos el código a github
+Ejecutar la generación de artículos en Heroku
 
 ```bash
-git push origin main
+heroku run rails db:seed
+```
+
+Tambien puedes ingresar a la consola de rails en heroku por ejemplo crea un artículo utilizando el formulario generado anteriormente ingresando en la consola de rails de Heroku
+
+```bash
+heroku run rails console
+```
+
+```ruby
+Article.create(title: 'Titulo', content: 'Contenido', published: true)
 ```
