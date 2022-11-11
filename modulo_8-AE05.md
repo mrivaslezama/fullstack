@@ -79,3 +79,16 @@ Agregar la paginación en la vista index de tweets.
 ```erb
 <%= paginate @tweets %>
 ```
+
+Hacemos un commit con el código generado
+
+```bash
+git add .
+git commit -m "Agregar paginación con Kaminari"
+```
+
+Subimos el código a github
+
+```bash
+git push origin main
+```
