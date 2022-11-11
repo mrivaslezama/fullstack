@@ -8,6 +8,23 @@ Este proyecto fue hecho teniendo en cuenta los aprendizajes obtenidos a lo largo
 
 La idea es que los estudiantes puedan usar el proyecto como base para sus proyectos finales.
 
+Pueden usar los commits para ver los cambios que se realizaron en cada tema, y pueden usar las ramas para ver el proyecto completo. Adicionalmente se generaron unos archivos markdown con los pasos que se realizaron en cada tema.
+
+### Modulos y aprendizajes
+
+| Modulo   | Readme                                   | Ramas                                                                                      |
+| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Modulo 8 | [Readme modulo_8-AE01](modulo_8-AE01.md) | [Rama modulo_8-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE01) |
+| Modulo 8 | [Readme modulo_8-AE02](modulo_8-AE02.md) | [Rama modulo_8-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE02) |
+| Modulo 8 | [Readme modulo_8-AE03](modulo_8-AE03.md) | [Rama modulo_8-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE03) |
+| Modulo 8 | [Readme modulo_8-AE04](modulo_8-AE04.md) | [Rama modulo_8-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE04) |
+| Modulo 8 | [Readme modulo_8-AE05](modulo_8-AE05.md) | [Rama modulo_8-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE05) |
+| Modulo 9 | [Readme modulo_9-AE01](modulo_9-AE01.md) | [Rama modulo_9-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE01) |
+| Modulo 9 | [Readme modulo_9-AE02](modulo_9-AE02.md) | [Rama modulo_9-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE02) |
+| Modulo 9 | [Readme modulo_9-AE03](modulo_9-AE03.md) | [Rama modulo_9-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE03) |
+| Modulo 9 | [Readme modulo_9-AE04](modulo_9-AE04.md) | [Rama modulo_9-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE04) |
+| Modulo 9 | [Readme modulo_9-AE05](modulo_9-AE05.md) | [Rama modulo_9-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE05) |
+
 ## Badges
 
 Imágenes que transmiten metadatos, por ejemplo, si todas las pruebas están pasando o no en el proyecto.
