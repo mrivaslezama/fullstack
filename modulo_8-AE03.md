@@ -37,6 +37,12 @@ Generar la migración:
 rails db:migrate
 ```
 
+Agregar la gema Faker al archivo Gemfile:
+
+```ruby
+gem 'faker'
+```
+
 Generar 200 artículos con contenido al azar utilizando el archivo db/seeds.rb y la gema Faker:
 
 ```ruby
@@ -45,6 +51,8 @@ require 'faker'
 
 Article.destroy_all
 
+puts 'Creating 200 fake articles...'
+
 200.times do
   Article.create(
     title: Faker::Book.title,
@@ -52,6 +60,12 @@ Article.destroy_all
     published: Faker::Boolean.boolean
   )
 end
+```
+
+Correr el archivo seeds.rb:
+
+```bash
+rails db:seed
 ```
 
 Crear el controlador Articles:
