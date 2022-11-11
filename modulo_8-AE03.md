@@ -31,7 +31,7 @@ Generar el modelo y la migración de la tabla Articles:
 rails g model Article title:string content:string published:boolean
 ```
 
-Generar la migración:
+Ejecutar la migración:
 
 ```bash
 rails db:migrate
