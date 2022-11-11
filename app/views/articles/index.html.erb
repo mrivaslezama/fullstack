@@ -1,0 +1,17 @@
+<h1>Articles</h1>
+<%= link_to "New Article", articles_new_path %>
+<% @articles.each do |article| %>
+  <p>
+    <strong>Title:</strong>
+    <%= article.title %>
+  </p>
+  <p>
+    <strong>Content:</strong>
+    <%= article.content %>
+  </p>
+  <p>
+    <strong>Published:</strong>
+    <%= article.published %>
+  </p>
+  <hr>
+<% end %>

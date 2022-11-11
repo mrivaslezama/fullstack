@@ -1,60 +1,169 @@
-# Modulo 8 - Aprendizaje esperado 01
+# Modulo 8 - Aprendizaje esperado 03
 
-Aplicar procedimiento de integración de un plantilla dentro de un proyecto nuevo en Ruby on Rails para acelerar la construcción del proyecto, en este ejercicio se debe hacer uso de el framework css [Bootstrap](https://getbootstrap.com/) y clonar la estructura de la plantilla proporcionada en el ejercicio, no obstante para efectos de no cargar este proyecto con demasiada información haremos uso de un framework css llamado [Pico.css](https://picocss.com/), el cual es un framework css semantico y que nos permite construir aplicaciones web de manera rápida y sencilla.
-
-Estas son algunas guias de como puede inntegrar bootstrap en su proyecto:
+Construir un aplicativo utilizando formularios para almacenar datos en una base de datos de acuerdo a los requerimientos de la organización
 
 ## Requisitos
 
-Tomar en cuenta la siguiente [plantilla](https://es.squarespace.com/plantillas/hart-demo-es) para dar estructura a nuestras vistas con la siguiente estructuras:
+Vamos a generar un modelo utilizando la línea de comando según la siguiente tabla:
 
-1. Inicio:
-   - La descripción del perfil esté al medio y grande
-   - Una imagen representativa usando el ViewHelper image_tag
-   - Descripción de los hobbies a la lado de la imagen
-   - Texto de pasiones por debajo de la imagen
-2. Contacto:
-   - Título grande
-   - Nombre de la persona
-   - Correo de la persona
-   - Campo para escribir el mensaje
-   - Botón de enviar
+|     | Articles  |         |
+| --- | --------- | ------- |
+| PK  | id        | integer |
+|     | title     | string  |
+|     | content   | string  |
+|     | published | boolean |
+
+1. Generar 200 artículos con contenido al azar utilizando el archivo db/seeds.rb y la gema Faker:
+
+2. Definir 2 vistas y 3 acciones que hagan lo siguiente:
+
+| Metodo | Ruta          | Funcion                                                |
+| ------ | ------------- | ------------------------------------------------------ |
+| GET    | articles      | Mostrar todos los artículos en la base de datos        |
+| GET    | articles/new  | Mostrar el formulario para registrar un artículo       |
+| POST   | articles/form | Capturar los datos del formulario y almacenarlos en BD |
 
 ### Procesos
 
-Agregar el framework css [Pico.css](https://picocss.com/) a nuestro proyecto, para esto se debe agregar el cdn en el archivo `app/views/layouts/application.html.erb` en la sección de `head`:
+Generar el modelo y la migración de la tabla Articles:
 
-```html
-<head>
-  <title>Modulo8</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="https://unpkg.com/picocss/dist/pico.min.css">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+```bash
+rails g model Article title:string content:string published:boolean
 ```
 
-Pico css es un framework css semantico, por lo que con las etiquetas html y con solo agregar algunas las clases que se encuentran en la documentación de [Pico.css](https://picocss.com/) podemos darle estilos a nuestros elementos html y nuestro proyecto se verá de la siguiente manera:
+Ejecutar la migración:
 
-![Vista home](/app/assets/images/estilo_inicial.png "Vista home")
-> Vista home.
-
-![Vista contact](/app/assets/images/estilo_inicial_contact.png "Vista contact")
-> Vista contact.
-
-Agregaremos imagenes a nuestro **proyecto** en ruby on rails, estas deben guardarse en la siguiente ruta `app/assets/images` y para poder usarlas en nuestras vistas debemos usar el ViewHelper `image_tag`:
-
-```html
-<%= image_tag("imagen.jpg", alt: "Imagen", class: "img-responsive") %>
+```bash
+rails db:migrate
 ```
 
-Para agregar un botón a nuestro proyecto debemos usar la siguiente estructura:
+Agregar la gema Faker al archivo Gemfile:
 
-```html
-<button class="btn btn-primary">Enviar</button>
+```ruby
+gem 'faker'
 ```
+
+Generar 200 artículos con contenido al azar utilizando el archivo db/seeds.rb y la gema Faker:
+
+```ruby
+# db/seeds.rb
+require 'faker'
+
+Article.destroy_all
+
+puts 'Creating 200 fake articles...'
+
+200.times do
+  Article.create(
+    title: Faker::Book.title,
+    content: Faker::Lorem.paragraph,
+    published: Faker::Boolean.boolean
+  )
+end
+```
+
+Correr el archivo seeds.rb:
+
+```bash
+rails db:seed
+```
+
+Crear el controlador Articles:
+
+```bash
+rails g controller Articles
+```
+
+Crear las vistas:
+
+```bash
+touch app/views/articles/index.html.erb
+touch app/views/articles/new.html.erb
+```
+
+Configurar las rutas:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  get 'articles', to: 'articles#index'
+  get 'articles/new', to: 'articles#new'
+  post 'articles/form', to: 'articles#create'
+end
+```
+
+Crear las acciones:
+
+```ruby
+# app/controllers/articles_controller.rb
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+
+  def new
+  end
+
+  def create
+    Article.create(
+      title: params[:title],
+      content: params[:content],
+      published: params[:published]
+    )
+    redirect_to articles_path
+  end
+end
+```
+
+Crear la vista index.html.erb:
+
+```erb
+<!-- app/views/articles/index.html.erb -->
+<h1>Articles</h1>
+<%= link_to "New Article", articles_new_path %>
+<% @articles.each do |article| %>
+  <p>
+    <strong>Title:</strong>
+    <%= article.title %>
+  </p>
+  <p>
+    <strong>Content:</strong>
+    <%= article.content %>
+  </p>
+  <p>
+    <strong>Published:</strong>
+    <%= article.published %>
+  </p>
+  <hr>
+<% end %>
+```
+
+Crear el formulario:
+
+```erb
+<!-- app/views/articles/new.html.erb -->
+<h1>Crear un nuevo artículo</h1>
+
+<%= form_with url: articles_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+
+  <p>
+    <%= form.label :published %><br>
+    <%= form.check_box :published %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 
 Hacemos un commit con el código generado
 
