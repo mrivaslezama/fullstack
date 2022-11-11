@@ -81,6 +81,17 @@ touch app/views/articles/index.html.erb
 touch app/views/articles/new.html.erb
 ```
 
+Configurar las rutas:
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  get 'articles', to: 'articles#index'
+  get 'articles/new', to: 'articles#new'
+  post 'articles/form', to: 'articles#create'
+end
+```
+
 Crear las acciones:
 
 ```ruby
