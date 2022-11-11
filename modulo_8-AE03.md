@@ -115,9 +115,31 @@ class ArticlesController < ApplicationController
 end
 ```
 
+Crear la vista index.html.erb:
+
+```erb
+<!-- app/views/articles/index.html.erb -->
+<h1>Articles</h1>
+<% @articles.each do |article| %>
+  <p>
+    <strong>Title:</strong>
+    <%= article.title %>
+  </p>
+  <p>
+    <strong>Content:</strong>
+    <%= article.content %>
+  </p>
+  <p>
+    <strong>Published:</strong>
+    <%= article.published %>
+  </p>
+  <hr>
+<% end %>
+```
+
 Crear el formulario:
 
-```html
+```erb
 <!-- app/views/articles/new.html.erb -->
 <h1>Crear un nuevo artículo</h1>
 
