@@ -48,7 +48,7 @@ root 'pages#home'
 Modificar el archivo `app/views/pages/home.html.erb` para agregar el contenido de la página, recuerda cambiar los datos por los tuyos.
 
 ```erb
-# app/views/layouts/application.html.erb
+# app/views/pages/home.html.erb
 <hgroup>
   <!-- Nombre -->
   <h1>Brayan Diaz C</h1>
