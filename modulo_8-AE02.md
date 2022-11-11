@@ -36,91 +36,31 @@ Agregar el framework css [Pico.css](https://picocss.com/) a nuestro proyecto, pa
 </head>
 ```
 
-```bash
-rails new nombre_proyecto
+Pico css es un framework css semantico, por lo que con las etiquetas html y con solo agregar algunas las clases que se encuentran en la documentación de [Pico.css](https://picocss.com/) podemos darle estilos a nuestros elementos html y nuestro proyecto se verá de la siguiente manera:
+
+![Vista home](/app/assets/images/estilo_inicial.png "Vista home")
+> Vista home.
+
+![Vista contact](/app/assets/images/estilo_inicial_contact.png "Vista contact")
+> Vista contact.
+
+Agregaremos imagenes a nuestro **proyecto** en ruby on rails, estas deben guardarse en la siguiente ruta `app/assets/images` y para poder usarlas en nuestras vistas debemos usar el ViewHelper `image_tag`:
+
+```html
+<%= image_tag("imagen.jpg", alt: "Imagen", class: "img-responsive") %>
 ```
 
-Ingresar al directorio del proyecto
+Para agregar un botón a nuestro proyecto debemos usar la siguiente estructura:
 
-```bash
-cd nombre_proyecto
-```
-
-Crear un controlador llamado `pages` y dos vistas, una para el inicio y otra para el formulario de contacto
-
-```bash
-rails g controller pages home contact
-```
-
-Configurar las rutas y una ruta raiz por defecto
-
-```ruby
-# config/routes.rb
-get '/home',        to: 'pages#home'
-get '/contact',     to: 'pages#contact'
-root 'pages#home'
-```
-
-Modificar el archivo `app/views/pages/home.html.erb` para agregar el contenido de la página, recuerda cambiar los datos por los tuyos.
-
-```erb
-# app/views/pages/home.html.erb
-<hgroup>
-  <!-- Nombre -->
-  <h1>Brayan Diaz C</h1>
-  <!-- Cargo -->
-  <h2>Full Stack Developer | Coding | Teacher | Blogging</h2>
-</hgroup>
-<!-- Email -->
-<a href="mailto:brayandiazc@gmail.com">brayandiazc@gmail.com</a>
-<!-- Descripción de tu perfil, hobbies y pasiones -->
-<p>Soy <strong>Full Stack Developer</strong>, con 4 años de experiencia, mi principal Stack tecnologico se basa en Ruby on Rails, PostgreSQL, AWS, React JS, React Native. Tengo experiencia en Python, NodeJS y sus tecnologías deribadas. Se que esta mal que yo lo diga, pero soy muy bueno en el diseño frontend 😜.</p>
-<p>Me gusta sentirme dueño de los proyectos en los que trabajo y no solo escribir código, sino también tener una visión crítica del producto, las funcionalidades y el modelo de negocio. No soy solo un profesional que escribe codigo, soy un profesional que soluciona problemas.</p>
-<h3>Ultimos 2 Empleos</h3>
-<ul>
-  <li>Adalid, Teacher</li>
-  <li>Desafío Latam, Teacher</li>
-</ul>
-```
-
-Modificar el archivo `app/views/pages/contact.html.erb` para agregar el contenido de la página.
-
-```erb
-# app/views/pages/contact.html.erb
-<h1>Pages#contact</h1>
-<form>
-  <div class="grid">
-    <label for="name">Name</label>
-    <input type="name" id="name" name="name" placeholder="Name" required>
-    <br>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Email" required>
-    <br>
-    <label for="comments">Comments</label>
-    <textarea name="textarea"></textarea>
-    <br>
-    <button type="submit">Submit</button>
-  </div>
-</form>
-```
-
-Agregar navegación entre las páginas
-
-```erb
-# app/views/layouts/application.html.erb
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
-  </ul>
-</nav>
+```html
+<button class="btn btn-primary">Enviar</button>
 ```
 
 Hacemos un commit con el código generado
 
 ```bash
 git add .
-git commit -m "Creación de proyecto y vistas"
+git commit -m "Agregando estilos iniciales"
 ```
 
 Subimos el código a github
