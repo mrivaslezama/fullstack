@@ -63,19 +63,19 @@ bundle install
 Agregar la paginación en el controlador de artículos.
 
 ```ruby
-class ArticlesController < ApplicationController
+class TweetsController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  # GET /articles
-  # GET /articles.json
+  # GET /tweets
+  # GET /tweets.json
   def index
-    @articles = Article.page(params[:page])
+    @tweeets = Tweet.page(params[:page])
   end
 end
 ```
 
-Agregar la paginación en la vista de artículos.
+Agregar la paginación en la vista index de tweets.
 
 ```erb
-<%= paginate @articles %>
+<%= paginate @tweets %>
 ```
