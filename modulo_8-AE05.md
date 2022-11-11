@@ -99,15 +99,13 @@ Recuerda publicar los cambios del proyecto a Heroku
 git push heroku main
 ```
 
-Ejecutar la migración para generar los tweets utilizando la gema de Faker.
-
 Ejecutar la migración en Heroku
 
 ```bash
 heroku run rails db:migrate
 ```
 
-Ejecutar la generación de artículos en Heroku
+Ejecutar la generación de teewts en Heroku
 
 ```bash
 heroku run rails db:seed
