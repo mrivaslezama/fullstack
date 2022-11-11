@@ -1,4 +1,4 @@
-# Modulo 8 - Aprendizaje esperado 02
+# Modulo 8 - Aprendizaje esperado 01
 
 Aplicar procedimiento de integración de un plantilla dentro de un proyecto nuevo en Ruby on Rails para acelerar la construcción del proyecto, en este ejercicio se debe hacer uso de el framework css [Bootstrap](https://getbootstrap.com/) y clonar la estructura de la plantilla proporcionada en el ejercicio, no obstante para efectos de no cargar este proyecto con demasiada información haremos uso de un framework css llamado [Pico.css](https://picocss.com/), el cual es un framework css semantico y que nos permite construir aplicaciones web de manera rápida y sencilla.
 
