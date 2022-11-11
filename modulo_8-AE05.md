@@ -87,12 +87,6 @@ git add .
 git commit -m "Agregar paginación con Kaminari"
 ```
 
-Subimos el código a github
-
-```bash
-git push origin main
-```
-
 Recuerda publicar los cambios del proyecto a Heroku
 
 ```bash
@@ -105,7 +99,7 @@ Ejecutar la migración en Heroku
 heroku run rails db:migrate
 ```
 
-Ejecutar la generación de teewts en Heroku
+Ejecutar la generación de teewts usando el archivo seed en Heroku
 
 ```bash
 heroku run rails db:seed
