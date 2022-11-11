@@ -3,18 +3,23 @@
   <head>
     <title>RailsTweetAdalid</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <nav>
+    <nav class="container">
       <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Contact", contact_path %></li>
       </ul>
     </nav>
-    <%= yield %>
+    <main>
+      <section class="container">
+        <%= yield %>
+      </section>
+    </main>
   </body>
 </html>
