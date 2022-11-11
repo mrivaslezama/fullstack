@@ -120,6 +120,7 @@ Crear la vista index.html.erb:
 ```erb
 <!-- app/views/articles/index.html.erb -->
 <h1>Articles</h1>
+<%= link_to "New Article", articles_new_path %>
 <% @articles.each do |article| %>
   <p>
     <strong>Title:</strong>
