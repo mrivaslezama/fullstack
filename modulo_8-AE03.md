@@ -164,7 +164,6 @@ Crear el formulario:
     <%= form.submit %>
   </p>
 <% end %>
-```
 
 Hacemos un commit con el código generado
 
