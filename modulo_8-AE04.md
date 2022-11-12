@@ -1,4 +1,4 @@
-# Modulo 8 - Aprendizaje esperado 03
+# Modulo 8 - Aprendizaje esperado 04
 
 Aplicar procedimiento de despliegue de un aplicativo web Ruby on Rails utilizando Heroku para disponibilizarlo en internet.
 
