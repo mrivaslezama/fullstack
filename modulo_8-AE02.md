@@ -26,13 +26,13 @@ Agregar el framework css [Pico.css](https://picocss.com/) a nuestro proyecto, pa
 
 ```html
 <head>
-  <title>Modulo8</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="https://unpkg.com/picocss/dist/pico.min.css">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <title>RailsTweetAdalid</title>
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+   <%= csrf_meta_tags %>
+   <%= csp_meta_tag %>
+   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+   <%= javascript_importmap_tags %>
 </head>
 ```
 
