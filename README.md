@@ -12,18 +12,18 @@ Pueden usar los commits para ver los cambios que se realizaron en cada tema, y p
 
 ### Modulos y aprendizajes
 
-| Modulo   | Readme                                   | Ramas                                                                                      |
-| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Modulo 8 | [Readme modulo_8-AE01](modulo_8-AE01.md) | [Rama modulo_8-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE01) |
-| Modulo 8 | [Readme modulo_8-AE02](modulo_8-AE02.md) | [Rama modulo_8-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE02) |
-| Modulo 8 | [Readme modulo_8-AE03](modulo_8-AE03.md) | [Rama modulo_8-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE03) |
-| Modulo 8 | [Readme modulo_8-AE04](modulo_8-AE04.md) | [Rama modulo_8-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE04) |
-| Modulo 8 | [Readme modulo_8-AE05](modulo_8-AE05.md) | [Rama modulo_8-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE05) |
-| Modulo 9 | [Readme modulo_9-AE01](modulo_9-AE01.md) | [Rama modulo_9-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE01) |
-| Modulo 9 | [Readme modulo_9-AE02](modulo_9-AE02.md) | [Rama modulo_9-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE02) |
-| Modulo 9 | [Readme modulo_9-AE03](modulo_9-AE03.md) | [Rama modulo_9-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE03) |
-| Modulo 9 | [Readme modulo_9-AE04](modulo_9-AE04.md) | [Rama modulo_9-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE04) |
-| Modulo 9 | [Readme modulo_9-AE05](modulo_9-AE05.md) | [Rama modulo_9-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE05) |
+| Modulo   | Tematica                                          | Readme                                   | Ramas                                                                                      |
+| -------- | ------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Modulo 8 | Creación de un proyecto usando Ruby on rails      | [Readme modulo_8-AE01](modulo_8-AE01.md) | [Rama modulo_8-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE01) |
+| Modulo 8 | Uso de etiquetas html y formularios en las vistas | [Readme modulo_8-AE02](modulo_8-AE02.md) | [Rama modulo_8-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE02) |
+| Modulo 8 | Almacenando datos usando un formulario            | [Readme modulo_8-AE03](modulo_8-AE03.md) | [Rama modulo_8-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE03) |
+| Modulo 8 | Proyecto en producción usando heroku              | [Readme modulo_8-AE04](modulo_8-AE04.md) | [Rama modulo_8-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE04) |
+| Modulo 8 | Creando un CRUD mediante scaffold                 | [Readme modulo_8-AE05](modulo_8-AE05.md) | [Rama modulo_8-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_8-AE05) |
+| Modulo 9 | Relaciones de uno a muchos                        | [Readme modulo_9-AE01](modulo_9-AE01.md) | [Rama modulo_9-AE01](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE01) |
+| Modulo 9 | Autenticación de usuarios con la gema Devise      | [Readme modulo_9-AE02](modulo_9-AE02.md) | [Rama modulo_9-AE02](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE02) |
+| Modulo 9 | Relaciones de muchos a muchos                     | [Readme modulo_9-AE03](modulo_9-AE03.md) | [Rama modulo_9-AE03](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE03) |
+| Modulo 9 | Adjuntar archivos por medio de Active storage     | [Readme modulo_9-AE04](modulo_9-AE04.md) | [Rama modulo_9-AE04](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE04) |
+| Modulo 9 | Pruebas unitarias                                 | [Readme modulo_9-AE05](modulo_9-AE05.md) | [Rama modulo_9-AE05](https://github.com/brayandiazc/rails-tweet-adalid/tree/modulo_9-AE05) |
 
 ## Badges
 
