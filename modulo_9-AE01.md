@@ -78,92 +78,104 @@ class TweetsController < ApplicationController
 end
 ```
 
-Antes de correr la migración, recomiendo
-
-Ejecutar las migraciones para crear la tabla en la base de datos.
-
-```bash
-rails db:migrate
-```
-
-Generar 200 artículos con contenido al azar utilizando el archivo db/seeds.rb y la gema Faker:
-
-```ruby
-# db/seeds.rb
-require 'faker'
-
-Tweet.destroy_all
-
-puts 'Creating 200 fake tweets...'
-
-200.times do
-  Tweet.create(
-    title: Faker::Book.title,
-    content: Faker::Lorem.paragraph,
-    published: Faker::Boolean.boolean
-  )
-end
-```
-
-Correr el archivo seeds.rb:
-
-```bash
-rails db:seed
-```
-
-Agregar la gema Kaminari para la paginación.
-
-```ruby
-gem 'kaminari'
-```
-
-Ejecutar el comando `bundle install` para instalar la gema.
-
-```bash
-bundle install
-```
-
-Agregar la paginación en el controlador de artículos.
-
-```ruby
-class TweetsController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-
-  # GET /tweets
-  # GET /tweets.json
-  def index
-    @tweeets = Tweet.page(params[:page])
-  end
-end
-```
-
-Agregar la paginación en la vista index de tweets.
+Debemos agregar category_id en el formulario de tweets. Quedara de la siguiente manera:
 
 ```erb
-<%= paginate @tweets %>
+<%= form_with(model: tweet) do |form| %>
+  <% if tweet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+      <ul>
+        <% tweet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :published, style: "display: block" %>
+    <%= form.check_box :published %>
+  </div>
+
+  <div>
+    <%= form.label :category_id, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(Category.all.map { |c| [c.name, c.id] }), {}, { class: 'form-control' } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
 ```
+
+Al correr el servidor y dirigirnos a los tweets notaremos que no se muestran las categorías en el formulario, esto es porque no hemos creado ninguna categoría, para crear una categoría debemos ir a la consola de rails y crear algunas categorías.
+
+```bash
+rails console
+```
+
+```ruby
+Category.create(name: 'Ruby')
+Category.create(name: 'Rails')
+Category.create(name: 'Javascript')
+Category.create(name: 'React')
+Category.create(name: 'Vue')
+Category.create(name: 'Angular')
+Category.create(name: 'Python')
+Category.create(name: 'Django')
+Category.create(name: 'Flask')
+Category.create(name: 'Java')
+Category.create(name: 'Spring')
+Category.create(name: 'Android')
+Category.create(name: 'IOS')
+Category.create(name: 'Swift')
+Category.create(name: 'Kotlin')
+Category.create(name: 'C#')
+```
+
+Esto podriamos hacerlo desde el archivo seeds.rb, pero por el momento lo dejaremos asi.
+
+Ahora si podemos crear un nuevo tweet y asignarle una categoría.
+
+Actualmente podemos seleccionar una categoría en el formulario de tweets, pero no se muestra en la vista de los tweets, para solucionar esto debemos modificar la vista de los tweets.
+
+```erb
+<div id="<%= dom_id tweet %>">
+  <p>
+    <strong>Title:</strong>
+    <%= tweet.title %>
+  </p>
+  <p>
+    <strong>Content:</strong>
+    <%= tweet.content %>
+  </p>
+  <p>
+    <strong>Category:</strong>
+    <%= tweet.category.name %>
+  </p>
+  <p>
+    <strong>Published:</strong>
+    <%= tweet.published %>
+  </p>
+</div>
+```
+
+Ahora si podemos ver la categoría de cada tweet.
 
 Hacemos un commit con el código generado
 
 ```bash
 git add .
-git commit -m "Agregar paginación con Kaminari"
-```
-
-Recuerda publicar los cambios del proyecto a Heroku
-
-```bash
-git push heroku main
-```
-
-Ejecutar la migración en Heroku
-
-```bash
-heroku run rails db:migrate
-```
-
-Ejecutar la generación de teewts usando el archivo seed en Heroku
-
-```bash
-heroku run rails db:seed
+git commit -m "Agregar categoria a tweet"
 ```
