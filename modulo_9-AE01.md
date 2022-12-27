@@ -14,7 +14,7 @@ Implementar relaciones 1 a N en los modelos utilizando Ruby on Rails para satisf
 Previamente creamos un MVC (modelo, vista, controlador) llamado **Teew** usando el comando scaffold, este lo asociaremos a un nuevo modelo que llamaremos **Category**, esto lo haremos para poder generar una relación 1 a N entre los modelos.
 
 ```bash
-rails generate scaffold Category name:string
+rails generate model Category name:string
 ```
 
 Creamos la migración para agregar la relación entre los modelos.
@@ -23,7 +23,21 @@ Creamos la migración para agregar la relación entre los modelos.
 rails generate migration AddCategoryToTweet category:references
 ```
 
-Corremos la migración para crear la columna en la tabla de tweets.
+Si corremos la migración, nos dará un error, esto es porque creamos tweets anteriormente y estos deberian estar asociados a la llave foranea de la relación **1 a N**, para solucionar esto tenemos multiples opciones, pero por el momento solo borraremos los tweets que se encuentran en la base de datos, esto lo haremos desde la consola de rails o desde el archivo seeds.rb.
+
+Abrimos la consola de rails
+
+```bash
+rails console
+```
+
+Ejecutamos el comando para eliminar todos los tweets.
+
+```bash
+Tweet.destroy_all
+```
+
+Corremos la migración para crear la columna category en la tabla de tweets.
 
 ```bash
 rails db:migrate
